@@ -12,9 +12,10 @@ p {
 }
 
 .main-container {
+    min-height: 100vh;
     display: grid;
-    grid-template-columns: minmax(min-content, 1fr) 5fr;
-    grid-template-rows: 1fr 7fr;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
 }
 
 .sidebar {
@@ -24,7 +25,8 @@ p {
     display: grid;
     align-content: start;
     gap: 2em;
-    padding: 15px;
+    padding: 10px;
+    padding-right: 20px;
 }
 
 ul {
@@ -37,7 +39,7 @@ li {
     margin-bottom: 7px;
 }
 
-a {
+.sidebar a {
     text-decoration: none;
     color: #ffffff;
     font-size: 1.1em;
@@ -45,13 +47,11 @@ a {
     display: grid;
     grid-auto-flow: column;
     justify-content: start;
+    align-items: center;
     gap: 15px;
 }
 
-.nav img,
-.subnav img,
-.user-info img,
-.searchbox img {
+.icon {
     width: 1.2em;
 }
 
@@ -59,12 +59,21 @@ a {
     font-size: 1.3em;
 }
 
+.title img {
+    width: 1.5em;
+}
+
+.nav,
+.subnav {
+    padding-left: 5px;
+}
+
 .header {
     background-color: rgb(255, 255, 255);
     padding: 5px;
 
     display: grid;
-    grid-template: 1fr 1fr / 2fr 1fr;
+    grid-template: 1fr 1fr / 2fr minmax(auto, 1.2fr);
     align-items: center;
 
     z-index: 1;
@@ -72,7 +81,8 @@ a {
 
 .header > *:nth-child(2),
 .header > *:nth-child(4) {
-    margin-right: 20px;
+    justify-content: end;
+    margin-right: 15px;
 }
 
 .header,
@@ -84,7 +94,7 @@ a {
 
 .searchbox input {
     height: 25px;
-    margin-left: 20px;
+    margin-left: 15px;
     padding-left: 10px;
 
     background-color: #e6eef8;
@@ -117,32 +127,49 @@ a {
     display: grid;
 }
 
+.avatar {
+    width: 2.5em;
+}
+
+.user-info {
+    font-weight: bold;
+}
+
 .greeting {
     margin: none;
     padding: none;
     margin-left: 20px;
-    line-height: 5px;
+    line-height: 25px;
+
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
 }
 
 .greeting p {
     font-size: 0.8em;
+    font-weight: bold;
 }
 
 .greeting h1 {
     font-size: 1.3em;
+    margin: 0;
+}
+
+.greeting img {
+    width: 80%;
+    max-width: 80px;
 }
 
 .user-buttons {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    grid-template-columns: repeat(auto-fit, clamp(60px, 70px, 100px));
     gap: 10px;
-    justify-items: stretch;
+    justify-content: center;
 }
 
 .user-buttons button {
     height: 30px;
-    max-width: 80px;
-    min-width: min-content;
     color: #ffffff;
     background-color: #fe7f39;
     border: none;
@@ -152,7 +179,7 @@ a {
 .main-content {
     background-color: #e6eef8;
     display: grid;
-    grid-template: 1fr 1fr / minmax(min-content, 5fr) minmax(min-content, 1.5fr);
+    grid-template:  auto 1fr / minmax(auto, 2fr) minmax(190px, 240px);
 
     padding-top: 10px;
     padding-right: 15px;
@@ -244,4 +271,18 @@ button:hover {
 
 .card p {
     font-size: 0.9em;
+}
+
+.people {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 10px;
+}
+
+.card {
+    transition: transform .1s;
+}
+
+.card:hover {
+    transform: scale(1.02);
 }
