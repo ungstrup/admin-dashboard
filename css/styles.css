@@ -19,7 +19,7 @@ p {
 }
 
 .sidebar {
-    background-color: #fe7f39;
+    background-color: #292929;
 
     grid-row: 1 / 3;
     display: grid;
@@ -36,19 +36,19 @@ ul {
 }
 
 li {
-    margin-bottom: 7px;
+    margin-bottom: 12px;
 }
 
 .sidebar a {
     text-decoration: none;
     color: #ffffff;
-    font-size: 1.1em;
+    font-size: 1em;
 
     display: grid;
     grid-auto-flow: column;
     justify-content: start;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
 }
 
 .icon {
@@ -88,7 +88,8 @@ li {
 .header,
 .project-cards > div,
 .announcements > div,
-.trending > div {
+.trending > div,
+.searchbox input:focus {
     box-shadow: 1px 3px 4px #b1b1b1;
 }
 
@@ -96,6 +97,7 @@ li {
     height: 25px;
     margin-left: 15px;
     padding-left: 10px;
+    margin-right: 3px;
 
     background-color: #e6eef8;
 
@@ -121,10 +123,14 @@ li {
     background-color: #ffffff;
 
     width: 40px;
-    padding: 5px;
+    padding: 7px;
     font-size: 1.2em;
 
     display: grid;
+}
+
+.searchbox input:focus {
+    outline: none;
 }
 
 .avatar {
@@ -140,6 +146,7 @@ li {
     padding: none;
     margin-left: 20px;
     line-height: 25px;
+    margin-bottom: 10px;
 
     display: grid;
     grid-template-columns: auto minmax(0, 1fr);
@@ -171,9 +178,13 @@ li {
 .user-buttons button {
     height: 30px;
     color: #ffffff;
-    background-color: #fe7f39;
+    background-color: #2472c0;
     border: none;
     border-radius: 15px;
+}
+
+.user-buttons button:hover {
+    background-color: #1a5692;
 }
 
 .main-content {
@@ -203,7 +214,9 @@ li {
 .project-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 1fr;
     gap: 20px;
+
     margin-right: 10px;
 }
 
@@ -213,7 +226,23 @@ li {
 }
 
 .project-cards > div { 
-    background: linear-gradient(90deg, rgba(255,168,106,1) 5px, rgba(255,255,255,1) 5px); 
+    background: linear-gradient(90deg, #2472c0 5px, rgba(255,255,255,1) 5px); 
+}
+
+.card {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.card div {
+    justify-self: end;
+    align-self: self-end;
+
+    margin-top: 10px;
+}
+
+.card-action {
+    width: 1.4em;
 }
 
 .project-cards > div,
@@ -286,3 +315,15 @@ button:hover {
 .card:hover {
     transform: scale(1.02);
 }
+
+svg {
+    width: 1.2em;
+    fill: #fff;
+}
+
+.sidebar a:hover,
+.sidebar a:hover svg path {
+    color: #2472c0;
+    fill: #2472c0;
+}
+
